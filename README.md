@@ -15,6 +15,7 @@ docker run \
   -e PRODUCT_NAME="Video Game Title" \
   -e PRODUCT_VERSION="0.0.1" \
   -e PORT="8080" \
+  -p 8080:8080 \
   aallbrig/unity-webgl-player
 ```
 
