@@ -1,0 +1,6 @@
+.idea
+.DS_Store
+Dockerfile
+node_modules
+dist
+
