@@ -20,8 +20,15 @@ docker run \
 ```
 
 ### Local Development
-Build dockerfile
+Check out the hacks directory for scripts.
+
+Docker related scripts:
 ```bash
-docker build . -t aallbrig/unity-webgl-player
+# Unity webgl player binds to port 8080
+./hacks/up.sh
+# Unity webgl docker artifacts are destroyed
+./hacks/down.sh
+# Dockerfile is build, tagged, and published
+./hacks/publish.sh
 ```
 
