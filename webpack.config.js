@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -23,6 +24,16 @@ module.exports = {
       patterns: [
         { from: 'src/TemplateData', to: 'TemplateData' },
       ],
+    }),
+    new webpack.EnvironmentPlugin({
+      'WEBGL_LOADER_URL': 'Build/unity-webgl-player.loader.js',
+      'WEBGL_DATA_URL': 'Build/unity-webgl-player.data',
+      'WEBGL_FRAMEWORK_URL': 'Build/unity-webgl-player.framework.js',
+      'WEBGL_CODE_URL': 'Build/unity-webgl-player.wasm',
+      'WEBGL_STREAMING_ASSETS_URL': 'StreamingAssets',
+      'COMPANY_NAME': 'Default Company LLC',
+      'PRODUCT_NAME': 'Video Game Title',
+      'PRODUCT_VERSION': '0.0.1',
     }),
   ],
   module: {

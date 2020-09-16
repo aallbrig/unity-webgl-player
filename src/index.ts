@@ -1,13 +1,12 @@
-const buildUrl = "Build";
-const loaderUrl = buildUrl + "/AndrewAllbrightMicroFPS.loader.js";
+const loaderUrl = process.env.WEBGL_LOADER_URL;
 const config = {
-  dataUrl: buildUrl + "/AndrewAllbrightMicroFPS.data",
-  frameworkUrl: buildUrl + "/AndrewAllbrightMicroFPS.framework.js",
-  codeUrl: buildUrl + "/AndrewAllbrightMicroFPS.wasm",
-  streamingAssetsUrl: "StreamingAssets",
-  companyName: "DefaultCompany",
-  productName: "Micro FPS Andrew Allbright",
-  productVersion: "1.1.2-preview.1",
+  dataUrl: process.env.WEBGL_DATA_URL,
+  frameworkUrl: process.env.WEBGL_FRAMEWORK_URL,
+  codeUrl: process.env.WEBGL_CODE_URL,
+  streamingAssetsUrl: process.env.WEBGL_STREAMING_ASSETS_URL,
+  companyName: process.env.COMPANY_NAME,
+  productName: process.env.PRODUCT_NAME,
+  productVersion: process.env.PRODUCT_VERSION,
 };
 
 const container = document.querySelector("#unity-container");
@@ -23,7 +22,7 @@ container.className = "unity-mobile";
 loadingBar.style.display = "block";
 
 const script = document.createElement("script");
-script.src = loaderUrl;
+script.src = loaderUrl ? loaderUrl : '';
 script.onload = () => {
   // @ts-ignore
   createUnityInstance(canvas, config, (progress: any) => {
